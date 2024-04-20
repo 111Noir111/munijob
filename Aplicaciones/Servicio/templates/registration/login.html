@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Iniciar sesión</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+</head>
+<body>
+    <section class="h-100">
+		<div class="container h-100">
+			<div class="row justify-content-sm-center h-100">
+				<div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
+					<div class="text-center my-5">
+						<img src="https://www.transparentpng.com/thumb/user/blak-frame-user-profile-png-icon--cupR3D.png" alt="logo" width="100">
+					</div>
+					<div class="card shadow-lg">
+						<div class="card-body p-5">
+							<h1 class="fs-4 card-title fw-bold mb-4">Iniciar sesión</h1>
+							<form method="POST" class="needs-validation" novalidate="" autocomplete="off">
+                                {% csrf_token %}
+								<div class="mb-3">
+                                    <label class="mb-2 text-muted" for="username">Usuario</label>
+                                    <input id="username" type="text" class="form-control" name="username" pattern="^[a-zA-Z0-9]{4,20}$" title="El nombre de usuario debe contener solo letras y números, con una longitud mínima de 4 caracteres y máxima de 20 caracteres" required autofocus>
+                                    <div class="invalid-feedback">
+                                        Por favor ingrese un nombre de usuario válido.
+                                    </div>
+                                </div>
+								<div class="mb-3">
+									<div class="mb-2 w-100">
+										<label class="text-muted" for="password">contraseña</label>
+										<a href="#" class="float-end">
+											¿Has olvidado tu contraseña?
+										</a>
+									</div>
+									<input id="password" type="password" class="form-control" name="password" required>
+								    <div class="invalid-feedback">
+								    	Se requiere contraseña
+							    	</div>
+								</div>
+
+								<div class="d-flex align-items-center">
+									<div class="form-check">
+										<input type="checkbox" name="remember" id="remember" class="form-check-input">
+										<label for="remember" class="form-check-label">Acuérdate de mí</label>
+									</div>
+									<button type="submit" class="btn btn-primary ms-auto">
+										Ingresar
+									</button>
+								</div>
+							</form>
+						</div>
+						<div class="card-footer py-3 border-0">
+							<div class="text-center">
+								¿No tienes una cuenta? <a href="#" class="text-dark">Crea uno</a>
+							</div>
+						</div>
+					</div>
+					<div class="text-center mt-5 text-muted">
+						Copyright &copy; 2017-2024 &mdash; Muni-Job
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+    <script src="{% static 'js/login.js' %}"></script>
+</body>
+</html>

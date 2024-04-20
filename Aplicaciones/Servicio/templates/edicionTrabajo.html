@@ -1,0 +1,30 @@
+{% extends "./base.html" %}
+
+{% block title %} Gestión de Servicios {% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <h2>Edición de trabajo</h2>
+        <div class="card-body">
+            <form action="/editarTrabajo/" method="POST">{% csrf_token %}
+                <div class="form-group">
+                    <input type="text" id="txtCodigo" name="txtCodigo" value="{{trabajo.codigo}}" class="form-control" 
+                        placeholder="Código" minlength="1" maxlength="6" readonly required>                       
+                </div><br>
+                <div class="form-group">
+                    <input type="text" id="txtNombreTrabajo" name="txtNombreTrabajo" value="{{trabajo.nombreTrabajo}}" class="form-control" 
+                    placeholder="Nombre trabajo"  minlength="4" maxlength="50" required>
+                </div><br>
+                <div class="form-group">
+                    <input type="text" id="txtDescripcion" name="txtDescripcion" value="{{trabajo.descripcion}}" class="form-control" 
+                    placeholder="Descripción de trabajo" maxlength="100" required>
+                </div><br>
+                <div class="form-group">
+                   <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
